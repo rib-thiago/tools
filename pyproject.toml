@@ -41,3 +41,4 @@ line_lenght = 79
 lint = "blue --check --diff . && isort --check --diff ."
 docs = "mkdocs serve"
 test = "pytest -s -x --cov=tools -vv"
+coverage = "coverage html"
