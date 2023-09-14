@@ -36,7 +36,7 @@ addopts = "--doctest-modules"
 
 [tool.isort]
 profile = "black"
-line_lenght = 79
+line_length = 79
 
 [tool.taskipy.tasks]
 lint = "blue --check --diff . && isort --check --diff ."
