@@ -40,3 +40,4 @@ line_lenght = 79
 [tool.taskipy.tasks]
 lint = "blue --check --diff . && isort --check --diff ."
 docs = "mkdocs serve"
+test = "pytest -s -x --cov=tools -vv"
