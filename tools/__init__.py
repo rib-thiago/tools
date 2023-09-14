@@ -54,36 +54,30 @@ def create_app(config_class=Config):
     @app.route('/')
     def index():
         """
-        Rota para a página inicial da aplicação.
-
-        :return: Template da página inicial.
-        :rtype: str
-
-        Exemplo de uso:
-
-        >>> from flask import url_for
-        >>> url_for('index')
-        '/index'
-        >>> render_template('index.html')
-        '<h1>Página inicial</h1>'
+        Exibe a página inicial.
+    
+        Exemplos de teste:
+    
+        >>> index()
+        200 OK
+        >>> request.path = '/invalid-path'
+        >>> index()
+        404 Not Found
         """
         return render_template('index.html')
 
     @app.route('/test-redis')
     def test_redis():
         """
-        Testa a conexão com o servidor Redis.
-
-        :return: Tupla com a mensagem de sucesso e o tipo de mensagem.
-        :rtype: tuple
-
-        Exemplo de uso:
-
+        Testa a conexão com o Redis.
+    
+        Exemplos de teste:
+    
         >>> test_redis()
-        ('Conexão com o Redis bem-sucedida!', 'sucess')
-
+        'Conexão com o Redis bem-sucedida!'
+        >>> redis = None
         >>> test_redis()
-        ('Erro na conexão com o Redis: Nenhum servidor Redis encontrado', 'danger')
+        'Erro na conexão com o Redis: NoneType object has no attribute "ping"'
         """
         try:
             # Testar conexão com o Redis
@@ -97,18 +91,15 @@ def create_app(config_class=Config):
     @app.route('/test-mongodb')
     def test_mongodb():
         """
-        Testa a conexão com o servidor MongoDB.
+        Testa a conexão com o MongoDB.
 
-        :return: Tupla com a mensagem de sucesso e o tipo de mensagem.
-        :rtype: tuple
-
-        Exemplo de uso:
+        Exemplos de teste:
 
         >>> test_mongodb()
-        ('Conexão com o MongoDB bem-sucedida!', 'sucess')
-
+        ['test_collection']
+        >>> db = None
         >>> test_mongodb()
-        ('Erro na conexão com o MongoDB: Nenhum servidor MongoDB encontrado', 'danger')
+        'Erro na conexão com o MongoDB: NoneType object has no attribute "list_collection_names"'
         """
         try:
             # Testar conexão com o MongoDB
