@@ -1,13 +1,3 @@
-"""
-Módulo de inicialização para o pacote 'tools'.
-
-Este módulo contém funções de inicialização e configuração para o pacote 'tools'.
-
-Exemplos de uso:
-
->>> from tools import create_app
->>> app = create_app()
-"""
 from flask import (
     Flask,
     flash,
@@ -27,22 +17,6 @@ from .db import create_user, find_user, verify_user
 
 # Criar uma função para criar a instância da aplicação
 def create_app(config_class=Config):
-    """
-    Cria uma instância da aplicação Flask com base na classe de configuração fornecida.
-
-    Args:
-        config_class (class): A classe de configuração a ser usada para configurar a aplicação.
-
-    Returns:
-        Flask: A instância da aplicação Flask configurada.
-
-    Exemplos de uso:
-
-    >>> from tools import create_app
-    >>> app = create_app()
-    >>> app.config['SECRET_KEY']
-    '9so3jYZSbrbvPqGoxYpO5i4fqj+mwX9UA29iuk+jhVkmaWpuyVoAV7xlaz4UI+56rK61fSW1AF/Qz/DF'
-    """
     app = Flask(__name__)
 
     # Configurar as configurações globais da aplicação
