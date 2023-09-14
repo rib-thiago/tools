@@ -1,4 +1,8 @@
 site_name: Teste de Ferramentas
+repo_url: https://github.com/rib-thiago/tools
+repo_name: rib-thiago/tools
+edit_uri: /tree/main/docs
+
 
 theme:
   name: material
